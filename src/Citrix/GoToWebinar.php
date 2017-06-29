@@ -213,7 +213,39 @@ class GoToWebinar extends ServiceAbstract implements CitrixApiAware
 
     return $this;
   }
+	
+	
+	
+  public function getSessions($webinarKey) { 
+    $url = 'https://api.getgo.com/G2W/rest/organizers/' . $this->getClient()->getOrganizerKey() . '/sessions';
+    $this->setHttpMethod('GET')
+         ->setUrl($url)
+         ->sendRequest($this->getClient()->getAccessToken())
+         ->processResponse();
+    
+      return $this->getResponse();
+  }
   
+  public function getWebinarSession($webinarKey) { 
+	$url = 'https://api.getgo.com/G2W/rest/organizers/' . $this->getClient()->getOrganizerKey() . '/webinars/' . $webinarKey . '/sessions';
+        $this->setHttpMethod('GET')
+         ->setUrl($url)
+         ->sendRequest($this->getClient()->getAccessToken())
+         ->processResponse();
+    
+        return $this->getResponse();
+  }
+
+  public function getSession($webinarKey,$sessionKey) { 
+	$url = 'https://api.getgo.com/G2W/rest/organizers/' . $this->getClient()->getOrganizerKey() . '/webinars/' . $webinarKey . '/sessions/'. $sessionKey;
+        $this->setHttpMethod('GET')
+         ->setUrl($url)
+         ->sendRequest($this->getClient()->getAccessToken())
+         ->processResponse();
+    
+        return $this->getResponse();
+  }
+	
   /**
    *
    * @return the $client
