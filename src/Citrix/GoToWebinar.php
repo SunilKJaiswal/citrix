@@ -230,8 +230,8 @@ class GoToWebinar extends ServiceAbstract implements CitrixApiAware
 	$url = 'https://api.getgo.com/G2W/rest/organizers/' . $this->getClient()->getOrganizerKey() . '/webinars/' . $webinarKey . '/sessions';
         $this->setHttpMethod('GET')
          ->setUrl($url)
-         ->sendRequest($this->getClient()->getAccessToken())
-         ->processResponse();
+         ->sendRequest($this->getClient()->getAccessToken());
+         //->processResponse();
     
         return $this->getResponse();
   }
@@ -240,8 +240,8 @@ class GoToWebinar extends ServiceAbstract implements CitrixApiAware
 	$url = 'https://api.getgo.com/G2W/rest/organizers/' . $this->getClient()->getOrganizerKey() . '/webinars/' . $webinarKey . '/sessions/'. $sessionKey;
         $this->setHttpMethod('GET')
          ->setUrl($url)
-         ->sendRequest($this->getClient()->getAccessToken())
-         ->processResponse();
+         ->sendRequest($this->getClient()->getAccessToken());
+         //->processResponse();
     
         return $this->getResponse();
   }
